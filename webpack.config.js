@@ -1,15 +1,21 @@
+const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = [{
   entry: './apps/main/assets/index.js',
   output: {
-    filename: './public/assets/index.js',
-  }
+    filename: './public/assets/index.js'
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery'
+    })
+  ]
 },
 {
   entry: './apps/main/assets/index.sass',
   output: {
-    filename: './public/assets/index.css',
+    filename: './public/assets/index.css'
   },
   module: {
     rules: [
@@ -27,4 +33,4 @@ module.exports = [{
     })
   ]
 }
-];
+]

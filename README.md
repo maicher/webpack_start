@@ -9,6 +9,10 @@
 
     $ npm install css-loader node-sass sass-loader extract-text-webpack-plugin
     
+## Step 3
+
+    $ npm i jquery --save
+    
 ## How to run on dev
 
     $ webpack-dev-server
