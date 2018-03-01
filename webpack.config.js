@@ -1,21 +1,13 @@
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-module.exports = [{
-  entry: './apps/main/assets/index.js',
+module.exports = {
+  entry: [
+    './apps/main/assets/index.sass',
+    './apps/main/assets/index.js'
+  ],
   output: {
     filename: './public/assets/index.js'
-  },
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery'
-    })
-  ]
-},
-{
-  entry: './apps/main/assets/index.sass',
-  output: {
-    filename: './public/assets/index.css'
   },
   module: {
     rules: [
@@ -28,9 +20,7 @@ module.exports = [{
     ]
   },
   plugins: [
-    new ExtractTextPlugin("./public/assets/index.css", {
-      allChunks: true
-    })
+    new ExtractTextPlugin('./public/assets/index.css', { allChunks: true }),
+    new webpack.ProvidePlugin({ $: 'jquery' })
   ]
 }
-]
