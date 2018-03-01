@@ -12,15 +12,23 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css/,
+        loader: 'css-loader'
+      },
+      {
         test: /\.sass$/,
         loader: ExtractTextPlugin.extract({
           use: ['css-loader', 'sass-loader']
         })
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=public/assets/[name].[ext]'
       }
     ]
   },
   plugins: [
     new ExtractTextPlugin('./public/assets/index.css', { allChunks: true }),
-    new webpack.ProvidePlugin({ $: 'jquery' })
+    new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })
   ]
 }

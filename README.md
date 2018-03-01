@@ -13,6 +13,11 @@
 
     $ npm i jquery --save
     
+## Step 4
+
+    $ npm i file-loader --save
+    $ npm i bootstrap@3 --save
+    
 ## How to run on dev
 
     $ webpack-dev-server
